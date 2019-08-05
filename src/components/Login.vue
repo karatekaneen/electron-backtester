@@ -67,11 +67,13 @@ export default {
 			const { username, password } = input.payload
 
 			try {
+				console.log(input)
 				const resp = await avanza.authenticate({
 					username,
 					password,
 					totpSecret: this.secret.TOTP_SECRET
 				})
+				console.log(resp)
 
 				if (resp.hasOwnProperty('authenticationSession') && resp.hasOwnProperty('customerId')) {
 					this.storeSession({
@@ -84,7 +86,7 @@ export default {
 					})
 				}
 			} catch (err) {
-				// console.error(err)
+				console.error(err)
 			}
 		},
 

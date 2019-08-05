@@ -13,7 +13,7 @@ export default new Router({
 		{
 			path: '/hello',
 			name: 'hello',
-			component: () => import(/* webpackChunkName: "about" */ './components/HelloWorld.vue')
+			component: () => import(/* webpackChunkName: "about" */ './views/Home.vue')
 		},
 		{
 			path: '/overview',
