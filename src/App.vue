@@ -1,36 +1,41 @@
 <template>
-  <v-app>
-    <v-app-bar app>
+  <v-app dark>
+    <v-toolbar app>
       <v-toolbar-title class="headline text-uppercase">
         <span>Vuetify</span>
         <span class="font-weight-light">MATERIAL DESIGN</span>
       </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        text
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
+      <v-spacer/>
+      <v-btn flat to="/login">
+        <span class="mr-2">Logga ut</span>
       </v-btn>
-    </v-app-bar>
+      <v-btn flat to="/hello">
+        <span class="mr-2">hem</span>
+      </v-btn>
+      <v-btn flat to="/overview">
+        <span class="mr-2">Overview</span>
+      </v-btn>
+    </v-toolbar>
 
     <v-content>
-      <HelloWorld/>
+      <router-view/>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld,
-  },
-  data: () => ({
-    //
-  }),
-};
+	name: 'App',
+	components: {},
+	data() {
+		return {
+			//
+		}
+	},
+	created() {
+		this.$electron.ipcRenderer.on('error', (event, arg) => {
+			console.log(arg)
+		})
+	}
+}
 </script>

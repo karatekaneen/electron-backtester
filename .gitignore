@@ -5,6 +5,7 @@ node_modules
 # local env files
 .env.local
 .env.*.local
+/src/data/secret.json
 
 # Log files
 npm-debug.log*
@@ -18,7 +19,7 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
+*.sw*
 
 #Electron-builder output
 /dist_electron
